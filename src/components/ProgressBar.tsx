@@ -3,7 +3,7 @@ import { Progress } from '@mantine/core';
 export function ProgressBar () {
   let numbers = [35, 25, 15, 25];
   return (
-    <Progress.Root size="50">
+    <Progress.Root size="30">
       <Progress.Section value={numbers[0]} color="gray" style={{borderColor:"gray", borderStyle: 'solid'}}>
         <Progress.Label>Deboarding</Progress.Label>
       </Progress.Section>

@@ -23,47 +23,48 @@ export default function TimelinePage() {
             <h1 style={{fontSize: '2em'}}>Mantine Progress Bar</h1>
             <ul style={{listStyleType: "none", padding: 0, margin: 0}}>
                 <li>
-                    <Flex direction={"row"} justify={"flex-start"} align={"center"}>
-                        <h2 style={{width: 150, textAlign: "start"}}>Planned</h2>
+                    <Flex direction={"row"} justify={"flex-start"} align={"center"} style={{backgroundColor: "#FFFFF0"}}>
+                        <h3 style={{width: 150, textAlign: "start", margin:5 }}>Planned</h3>
                         <div style={{minWidth: "100vh"}}>
                             <ProgressBar/>
                         </div>
                     </Flex>
                 </li>
                 <li>
-                    <Flex align={"center"}>
-                        <h2 style={{width: 150, textAlign: "start"}}>Deboarding</h2>
-                        <div style={{width: '35vh'}}>
-                            <Progress size="25" value={100} />
+                    <Flex align={"center"} style={{backgroundColor: "#DCDCDC"}}>
+                        <p style={{width: 150, textAlign: "start", margin:5}}>Deboarding</p>
+                        <div style={{width: '100vh', display: "grid"}}>
+                            <div style={{width: '35vh'}}>
+                                <Progress size="25" value={100} />
+                            </div>
                         </div>
                     </Flex>
                 </li>
                 <li>
-                    <Flex align={"center"}>
-                        <h2 style={{width: 150, textAlign: "start"}}>Cleaning</h2>
+                    <Flex align={"center"} style={{backgroundColor: "#FFFFF0"}}>
+                        <p style={{width: 150, textAlign: "start",  margin:5}}>Cleaning</p>
                         <div style={{width: '25vh', marginLeft: '35vh'}}>
                             <Progress size="25" value={100} />
                         </div>
                     </Flex>
                 </li>
                 <li>
-                    <Flex align={"center"}>
-                        <h2 style={{width: 150, textAlign: "start"}}>Tanking</h2>
+                    <Flex align={"center"} style={{backgroundColor: "#DCDCDC"}}>
+                        <p style={{width: 150, textAlign: "start",  margin:5}}>Tanking</p>
                         <div style={{width: '9vh', marginLeft: '60vh'}}>
                             <Progress size="25" value={100} animated />
                         </div>
                     </Flex>
                 </li>
                 <li>
-                    <Flex align={"center"}>
-                        <h2 style={{width: 150, textAlign: "start"}}>Inspection</h2>
+                    <Flex align={"center"} style={{backgroundColor: "#FFFFF0"}}>
+                        <p style={{width: 150, textAlign: "start",  margin:5}}>Inspection</p>
                         {/* <div style={{width: '35vh'}}>
                             <Progress size="25" value={100} animated />
                         </div> */}
                     </Flex>
                 </li>
             </ul>
-
         </>
     );
 }
