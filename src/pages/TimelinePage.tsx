@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 export default function TimelinePage() {
     const navigate = useNavigate();
 
+    //static code only, just for testing mantine progress bar
     return(
         <>
             <Flex gap={5}>
