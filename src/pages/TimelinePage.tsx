@@ -14,6 +14,9 @@ export default function TimelinePage() {
                 <Button onClick={() => navigate('/google-timeline')}>
                     Google Timeline
                 </Button>
+                <Button onClick={() => navigate('/google-timeline2')}>
+                    Google Timeline 2
+                </Button>
                 <Button onClick={() => navigate('/gantt-react')}>
                     Gantt Task React
                 </Button>
