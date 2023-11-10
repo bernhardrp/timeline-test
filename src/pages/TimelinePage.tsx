@@ -1,8 +1,16 @@
-import { Flex, Progress } from "@mantine/core";
+import { Button, Flex, Progress } from "@mantine/core";
 import { ProgressBar } from "../components/ProgressBar";
+import { useNavigate } from "react-router-dom";
 export default function TimelinePage() {
+    const navigate = useNavigate();
+
     return(
         <>
+            <Flex gap={5}>
+                <Button onClick={() => navigate('/google-gantt')}>
+                    Google Gantt
+                </Button>
+            </Flex>
             <h1 style={{fontSize: '2em'}}>Mantine Progress Bar</h1>
             <ul style={{listStyleType: "none", padding: 0, margin: 0}}>
                 <li>
@@ -46,6 +54,7 @@ export default function TimelinePage() {
                     </Flex>
                 </li>
             </ul>
+
         </>
     );
 }

@@ -5,6 +5,7 @@ import {
     Route,
 } from "react-router-dom";
 import TimelinePage from "./pages/TimelinePage";
+import GoogleChartPage from "./pages/GoogleChartPage";
 
 export const routes: RouteProps[] =  [
     {
@@ -15,6 +16,10 @@ export const routes: RouteProps[] =  [
     {
         path: '/timeline',
         element: <TimelinePage />,
+    },
+    {
+        path: '/google-gantt',
+        element: <GoogleChartPage />
     }
 ]
 
