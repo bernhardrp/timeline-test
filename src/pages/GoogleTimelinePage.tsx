@@ -21,10 +21,11 @@ export const data = [
 
 const GoogleTimelinePage = () => {
     const options = {
-        timeline: {
-            colorByRowLabel: true,
-          },
-        colors: ['gray', '#EA4335'],
+        // timeline: {
+        //     colorByRowLabel: false,
+        //   },
+        // colors: ['gray','red', 'gray', 'gray'],
+        allowHTML: true
       };
     
 
