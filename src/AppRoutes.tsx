@@ -8,6 +8,7 @@ import TimelinePage from "./pages/TimelinePage";
 import GoogleChartPage from "./pages/GoogleChartPage";
 import GoogleTimelinePage from "./pages/GoogleTimelinePage";
 import GanttTaskReactPage from "./pages/GanttTaskReactPage";
+import GanttTaskReact2Page from "./pages/GanttTaskReact2Page";
 
 export const routes: RouteProps[] =  [
     {
@@ -26,9 +27,14 @@ export const routes: RouteProps[] =  [
     {
         path: '/google-timeline',
         element: <GoogleTimelinePage />
-    },{
+    },
+    {
         path: '/gantt-react',
         element: <GanttTaskReactPage />
+    },
+    {
+        path: '/gantt-react2',
+        element: <GanttTaskReact2Page />
     }
 ]
 

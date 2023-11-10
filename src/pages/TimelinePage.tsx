@@ -16,6 +16,9 @@ export default function TimelinePage() {
                 <Button onClick={() => navigate('/gantt-react')}>
                     Gantt Task React
                 </Button>
+                <Button onClick={() => navigate('/gantt-react-2')}>
+                    Gantt Task React 2
+                </Button>
             </Flex>
             <h1 style={{fontSize: '2em'}}>Mantine Progress Bar</h1>
             <ul style={{listStyleType: "none", padding: 0, margin: 0}}>
