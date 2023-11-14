@@ -23,6 +23,9 @@ export default function TimelinePage() {
                 <Button onClick={() => navigate('/gantt-react2')}>
                     Gantt Task React 2
                 </Button>
+                <Button onClick={() => navigate('/custom-timeline')}>
+                    Custom Timeline
+                </Button>
             </Flex>
             <h1 style={{fontSize: '2em'}}>Mantine Progress Bar</h1>
             <ul style={{listStyleType: "none", padding: 0, margin: 0}}>
