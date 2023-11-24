@@ -37,23 +37,24 @@ const GanttChart: React.FC<GanttChartProps> = ({ tasks }) => {
 
   return (
     <div className="gantt-chart">
+      <div style={{paddingLeft:'5%'}}>
+        {tasks.map((task, index) => {
+            const width = ((task.end.getTime() - task.start.getTime()) / thirtyMinutes) * 5 + '%';
+            const marginLeft = ((task.start.getTime() - earliestStartTime.getTime()) / thirtyMinutes) * 5 + '%';
+            
+            return (
+              <div key={index} className="gantt-task" style={{ width, marginLeft }}>
+                {task.name}
+              </div>
+            );
+        })}
+      </div>
       <div className="gantt-time-scale">
         {timeSlots.map((timeSlot, index) => (
           <div key={index} className="gantt-time-slot">
             {formatTime(timeSlot)}
           </div>
         ))}
-      </div>
-      <div style={{paddingLeft:'5vh'}}>
-        {tasks.map((task, index) => {
-            const width = ((task.end.getTime() - task.start.getTime()) / thirtyMinutes) * 5 + 'vh';
-            
-            return (
-                <div key={index} className="gantt-task" style={{ width }}>
-                {task.name}
-            </div>
-            );
-        })}
       </div>
     </div>
   );
