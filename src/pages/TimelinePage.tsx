@@ -32,7 +32,7 @@ export default function TimelinePage() {
                 <li>
                     <Flex direction={"row"} justify={"flex-start"} align={"center"} style={{backgroundColor: "#FFFFF0"}}>
                         <h3 style={{width: 150, textAlign: "start", margin:5 }}>Planned</h3>
-                        <div style={{minWidth: "100vh"}}>
+                        <div style={{width: "150vh"}}>
                             <ProgressBar/>
                         </div>
                     </Flex>
@@ -40,8 +40,8 @@ export default function TimelinePage() {
                 <li>
                     <Flex align={"center"} style={{backgroundColor: "#DCDCDC"}}>
                         <p style={{width: 150, textAlign: "start", margin:5}}>Deboarding</p>
-                        <div style={{width: '100vh', display: "grid"}}>
-                            <div style={{width: '35vh'}}>
+                        <div style={{width: '150vh', display: "grid"}}>
+                            <div style={{width: '35%'}}>
                                 <Progress size="25" value={100} />
                             </div>
                         </div>
@@ -50,16 +50,20 @@ export default function TimelinePage() {
                 <li>
                     <Flex align={"center"} style={{backgroundColor: "#FFFFF0"}}>
                         <p style={{width: 150, textAlign: "start",  margin:5}}>Cleaning</p>
-                        <div style={{width: '25vh', marginLeft: '35vh'}}>
-                            <Progress size="25" value={100} />
+                        <div style={{width: '150vh', display: "grid"}}>
+                            <div style={{width: '25%', marginLeft: '35%'}}>
+                                <Progress size="25" value={100} />
+                            </div>
                         </div>
                     </Flex>
                 </li>
                 <li>
                     <Flex align={"center"} style={{backgroundColor: "#DCDCDC"}}>
                         <p style={{width: 150, textAlign: "start",  margin:5}}>Tanking</p>
-                        <div style={{width: '9vh', marginLeft: '60vh'}}>
-                            <Progress size="25" value={100} animated />
+                        <div style={{width: '150vh', display: "grid"}}>
+                            <div style={{width: '9%', marginLeft: '60%'}}>
+                                <Progress size="25" value={100} animated/>
+                            </div>
                         </div>
                     </Flex>
                 </li>
