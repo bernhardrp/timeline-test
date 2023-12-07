@@ -25,31 +25,35 @@ const GanttChart: React.FC<GanttChartProps> = ({ tasks }) => {
     latestEndTime = minLatestEndTime;
   }
 
-  // Calculate the total timeline duration
-  // const totalDuration = latestEndTime.getTime() - earliestStartTime.getTime();
-
-  // Generate time slots every 30 minutes within the timeline duration
-
   const timeSlots: Date[] = [];
   for (let time = earliestStartTime.getTime(); time <= latestEndTime.getTime(); time += 30 * 60 * 1000) {
     timeSlots.push(new Date(time));
   }
 
   return (
-    <div className="gantt-chart">
-      <div style={{paddingLeft:'5%'}}>
-        {tasks.map((task, index) => {
-            const width = ((task.end.getTime() - task.start.getTime()) / thirtyMinutes) * 5 + '%';
-            const marginLeft = ((task.start.getTime() - earliestStartTime.getTime()) / thirtyMinutes) * 5 + '%';
+    <div className="gantt-chart hide-scrollbar">
+      <div >
+        <div style={{paddingLeft:'2vw'}}>
+          {tasks.map((task, index) => {
+            const width = ((task.end.getTime() - task.start.getTime()) / thirtyMinutes) * 4 + 'vw';
+            const marginLeft = ((task.start.getTime() - earliestStartTime.getTime()) / thirtyMinutes) * 4 + 'vw';
             
             return (
-              <div key={index} className="gantt-task" style={{ width, marginLeft }}>
-                {task.name}
-              </div>
-            );
-        })}
+              <>
+                <div className="horizontal-scale" style={{position: 'absolute'}}>
+                  {timeSlots.map(() => (
+                    <div className="gantt-time-scale"/>
+                  ))}
+                </div>
+                <div key={index} className="gantt-task" style={{ width, marginLeft }}>
+                  {task.name}
+                </div>
+              </>
+              );
+            })}
+        </div>
       </div>
-      <div className="gantt-time-scale">
+      <div className="horizontal-scale">
         {timeSlots.map((timeSlot, index) => (
           <div key={index} className="gantt-time-slot">
             {formatTime(timeSlot)}
