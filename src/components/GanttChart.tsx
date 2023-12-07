@@ -1,9 +1,11 @@
 // GanttChart.tsx
 
 import React from 'react';
+import { Text } from '@mantine/core';
 import './GanttChart.css';
 
 interface Task {
+  category: string;
   name: string;
   start: Date;
   end: Date;
@@ -32,33 +34,41 @@ const GanttChart: React.FC<GanttChartProps> = ({ tasks }) => {
 
   return (
     <div className="gantt-chart hide-scrollbar">
-      <div >
-        <div style={{paddingLeft:'2vw'}}>
+      <div>
+        <div>
           {tasks.map((task, index) => {
             const width = ((task.end.getTime() - task.start.getTime()) / thirtyMinutes) * 4 + 'vw';
-            const marginLeft = ((task.start.getTime() - earliestStartTime.getTime()) / thirtyMinutes) * 4 + 'vw';
+            const marginLeft = ((task.start.getTime() - earliestStartTime.getTime()) / thirtyMinutes) * 4 + 2+ 'vw';
             
             return (
-              <>
-                <div className="horizontal-scale" style={{position: 'absolute'}}>
+              <div className="row">
+                <Text className="category" style={{padding: '1vh'}} size='sm'>
+                  {task.category}
+                </Text>
+                <div className="horizontal-scale" style={{position: 'absolute', marginLeft: '7vw'}}>
                   {timeSlots.map(() => (
                     <div className="gantt-time-scale"/>
                   ))}
                 </div>
-                <div key={index} className="gantt-task" style={{ width, marginLeft }}>
-                  {task.name}
+                <div>
+                  <div key={index} className="gantt-task" style={{ width, marginLeft }}>
+                    {task.name}
+                  </div>
                 </div>
-              </>
+              </div>
               );
             })}
         </div>
       </div>
-      <div className="horizontal-scale">
-        {timeSlots.map((timeSlot, index) => (
-          <div key={index} className="gantt-time-slot">
-            {formatTime(timeSlot)}
-          </div>
-        ))}
+      <div>
+        <div className='border-bottom-category'/>
+        <div className="horizontal-scale" style={{marginLeft: '7vw'}}>
+          {timeSlots.map((timeSlot, index) => (
+            <div key={index} className="gantt-time-slot">
+              {formatTime(timeSlot)}
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
