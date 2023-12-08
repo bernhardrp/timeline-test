@@ -1,7 +1,7 @@
 // GanttChart.tsx
 
 import React from 'react';
-import { Text } from '@mantine/core';
+import { Text, Divider, Progress } from '@mantine/core';
 import './GanttChart.css';
 
 interface Task {
@@ -9,6 +9,7 @@ interface Task {
   name: string;
   start: Date;
   end: Date;
+  progress: number;
 }
 
 interface GanttChartProps {
@@ -31,6 +32,7 @@ const GanttChart: React.FC<GanttChartProps> = ({ tasks }) => {
   for (let time = earliestStartTime.getTime(); time <= latestEndTime.getTime(); time += 30 * 60 * 1000) {
     timeSlots.push(new Date(time));
   }
+  const maxWidth = timeSlots.length * 4 + 8 + 'vw';
 
   return (
     <div className="gantt-chart hide-scrollbar">
@@ -39,20 +41,22 @@ const GanttChart: React.FC<GanttChartProps> = ({ tasks }) => {
           {tasks.map((task, index) => {
             const width = ((task.end.getTime() - task.start.getTime()) / thirtyMinutes) * 4 + 'vw';
             const marginLeft = ((task.start.getTime() - earliestStartTime.getTime()) / thirtyMinutes) * 4 + 2+ 'vw';
-            
+
             return (
-              <div className="row">
-                <Text className="category" style={{padding: '1vh'}} size='sm'>
-                  {task.category}
-                </Text>
-                <div className="horizontal-scale" style={{position: 'absolute', marginLeft: '7vw'}}>
-                  {timeSlots.map(() => (
-                    <div className="gantt-time-scale"/>
-                  ))}
-                </div>
-                <div>
-                  <div key={index} className="gantt-task" style={{ width, marginLeft }}>
-                    {task.name}
+              <div key={index} >
+                <Divider w={maxWidth} m={0}/>
+                <div className="row">
+                  <Text className="category" size='sm'>
+                    {task.category}
+                  </Text>
+                  <div className="bar">
+                     <Progress.Root size={'20'} style={{ width, marginLeft }}>
+                        <Progress.Section value={task.progress}>
+                          <Progress.Label>
+                            {task.name}
+                          </Progress.Label>
+                        </Progress.Section>
+                     </Progress.Root>
                   </div>
                 </div>
               </div>
@@ -61,12 +65,12 @@ const GanttChart: React.FC<GanttChartProps> = ({ tasks }) => {
         </div>
       </div>
       <div>
-        <div className='border-bottom-category'/>
+      <Divider w={maxWidth} m={0} size={'md'}/>
         <div className="horizontal-scale" style={{marginLeft: '7vw'}}>
           {timeSlots.map((timeSlot, index) => (
-            <div key={index} className="gantt-time-slot">
+            <Text key={index} className="gantt-time-slot" size='sm'> 
               {formatTime(timeSlot)}
-            </div>
+            </Text>
           ))}
         </div>
       </div>
